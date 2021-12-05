@@ -1,0 +1,36 @@
+_schema-version: '3.2'
+ID: invoices
+version: 0.0.1
+modules:
+  - name: invoices-approuter
+    type: approuter.nodejs
+    path: invoices-approuter
+    requires:
+      - name: invoices_html_repo_runtime
+      - name: dest_invoices
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+  - name: invoices_ui_deployer
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: invoices_html_repo_host
+        parameters:
+          content-target: true
+resources:
+  - name: invoices_html_repo_runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-runtime
+  - name: invoices_html_repo_host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host
+  - name: dest_invoices
+    parameters:
+      service-plan: lite
+      service: destination
+    type: org.cloudfoundry.managed-service
