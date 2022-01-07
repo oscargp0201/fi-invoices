@@ -1,20 +1,27 @@
 {
   // Use IntelliSense to learn about possible attributes.
   // Hover to view descriptions of existing attributes.
+  "inputs": [
+    {
+      "id": "UI5Version",
+      "type": "command",
+      "command": "sap.ux.appGenerator.ui5Version"
+    }
+  ],
   "configurations": [
     {
       "name": "sapui5",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
       "cwd": "${workspaceFolder}/sapui5",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
       "runtimeArgs": [
         "fiori",
         "run"
       ],
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "npx",
-      "windows": {
-        "runtimeExecutable": "npx.cmd"
-      },
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       "port": 9229,
@@ -29,7 +36,7 @@
       ]
     },
     {
-      "name": "sapui5",
+      "name": "Star Mock2",
       "cwd": "${workspaceFolder}/sapui5",
       "runtimeArgs": [
         "fiori",
@@ -40,58 +47,7 @@
       "runtimeExecutable": "npx",
       "args": [
         "--open",
-        "index.html"
-      ],
-      "windows": {
-        "runtimeExecutable": "npx.cmd"
-      },
-      "console": "internalConsole",
-      "internalConsoleOptions": "openOnSessionStart",
-      "env": {
-        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/invoices/sapui5\"}",
-        "FIORI_TOOLS_UI5_VERSION": "1.97.0",
-        "FIORI_TOOLS_UI5_URI": "https://ui5.sap.com"
-      }
-    },
-    {
-      "name": "sapui5",
-      "cwd": "${workspaceFolder}/sapui5",
-      "runtimeArgs": [
-        "fiori",
-        "run"
-      ],
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "npx",
-      "args": [
-        "--open",
-        "index.html"
-      ],
-      "windows": {
-        "runtimeExecutable": "npx.cmd"
-      },
-      "console": "internalConsole",
-      "internalConsoleOptions": "openOnSessionStart",
-      "env": {
-        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/invoices/sapui5\"}",
-        "FIORI_TOOLS_UI5_VERSION": "1.97.0",
-        "FIORI_TOOLS_UI5_URI": "https://ui5.sap.com",
-        "FIORI_TOOLS_BACKEND_CONFIG": "[{\"path\":\"/sap/opu/odata\",\"destination\":\"Northwind\"}]"
-      }
-    },
-    {
-      "name": "sapui5_2",
-      "cwd": "${workspaceFolder}/sapui5",
-      "runtimeArgs": [
-        "fiori",
-        "run"
-      ],
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "npx",
-      "args": [
-        "--open",
-        "index.html"
+        "'test/mockServer.html'"
       ],
       "windows": {
         "runtimeExecutable": "npx.cmd"
@@ -101,7 +57,8 @@
       "env": {
         "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/invoices/sapui5\"}",
         "FIORI_TOOLS_UI5_VERSION": "",
-        "FIORI_TOOLS_UI5_URI": "https://ui5.sap.com"
+        "FIORI_TOOLS_UI5_URI": "https://ui5.sap.com",
+        "FIORI_TOOLS_BACKEND_CONFIG": "[{\"path\":\"/sap/opu/odata\",\"destination\":\"Northwind\"}]"
       }
     }
   ],
